@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import React from 'react';
-import { AiOutlineArrowRight } from 'react-icons/ai';
-import { SiHiveBlockchain } from 'react-icons/si';
+import Image from "next/image";
+import { useRouter } from "next/router";
+import React from "react";
+import { AiOutlineArrowRight } from "react-icons/ai";
+import { SiHiveBlockchain } from "react-icons/si";
 
 const About = () => {
   const router = useRouter();
@@ -18,8 +18,8 @@ const About = () => {
 
       <div>
         <p className="w-[50%] mx-auto text-center font-Poppins text-xl mt-48">
-          <span className="font-semibold">ExplorerX</span> is the modern
-          solution for hassle-free smart contract deployment, management, and
+          <span className="font-semibold">CrossX</span> is the modern solution
+          for hassle-free smart contract deployment, management, and
           verification on multiple chains - "All at your fingertips!"
         </p>
       </div>
@@ -43,7 +43,7 @@ const About = () => {
 
           <button
             onClick={() => {
-              router.push('/deploy');
+              router.push("/deploy");
             }}
             className="mt-10 flex items-center gap-2 justify-center hover:gap-4 delay-100 transition-all ease-in-out rounded-full py-4 bg-black w-[200px] text-white font-semibold font-Poppins"
           >
@@ -100,7 +100,7 @@ const About = () => {
 
           <button
             onClick={() => {
-              router.push('/explorer');
+              router.push("/explorer");
             }}
             className="mt-10 flex items-center gap-2 justify-center hover:gap-4 delay-100 transition-all ease-in-out rounded-full py-4 bg-black w-[200px] text-white font-semibold font-Poppins"
           >
@@ -120,31 +120,6 @@ const About = () => {
             className="rounded-md absolute -bottom-60 -left-20 hover:scale-105 hover:-rotate-12 transition-all ease-out"
           />
         </div>
-      </div>
-
-      <div className="mt-60 ">
-        <h2 className="text-7xl font-Poppins text-center tracking-wide leading-[90px]  uppercase font-semibold">
-          Add Existing Contracts!
-        </h2>
-        <p className="text-md font-Poppins text-center mt-10  text-gray-500">
-          Manage your existing contracts with our integrated UMA protocol.
-        </p>
-        <p className="text-md font-Poppins text-center  text-gray-500 mt-1 ">
-          Add all your existing multichain contracts and access them easily with
-          our explorer. So why wait? Let's get started
-        </p>
-
-        <button
-          onClick={() => {
-            router.push('/addContract');
-          }}
-          className="mt-10 flex items-center gap-2 mx-auto justify-center hover:gap-4 delay-100 transition-all ease-in-out rounded-full py-4 bg-black w-[200px] text-white font-semibold font-Poppins"
-        >
-          Add Contract
-          <span>
-            <AiOutlineArrowRight />
-          </span>
-        </button>
       </div>
     </section>
   );

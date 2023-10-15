@@ -11,12 +11,7 @@ import Confetti from "react-confetti";
 import { useWindowDimensions } from "@/constants/windowSize.js";
 import { waitForTransaction } from "@wagmi/core";
 
-import {
-  deployerAbi,
-  contractAddress,
-  ccipSelectors,
-  rpcUrls,
-} from "@/constants";
+import { deployerAbi, contractAddress, rpcUrls } from "@/constants";
 import { useRouter } from "next/router";
 import { data } from "autoprefixer";
 const Backdrop = ({ onClose }) => {

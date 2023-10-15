@@ -1,13 +1,13 @@
-import SearchModal from '@/components/Search/SearchModal';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import React, { useState } from 'react';
-import { BsSearch } from 'react-icons/bs';
+import SearchModal from "@/components/Search/SearchModal";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
+import { BsSearch } from "react-icons/bs";
 
 const Explorer = () => {
-  const [address, setAddress] = useState('');
+  const [address, setAddress] = useState("");
   const [showModal, setShowModal] = useState(false);
-  const [chain, setChain] = useState('');
+  const [chain, setChain] = useState("");
 
   const router = useRouter();
 
@@ -16,7 +16,7 @@ const Explorer = () => {
   };
 
   const searchAddressHandler = (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       setShowModal(true);
     }
   };
@@ -30,7 +30,7 @@ const Explorer = () => {
       chain: chain,
       address: address,
     });
-    router.push(`/address/${address}?chain=${chain.chainName}`)
+    router.push(`/address/${address}?chain=${chain.chainName}`);
   };
 
   return (
@@ -61,7 +61,7 @@ const Explorer = () => {
           </h2>
         </div>
         <h2 className="text-8xl text-white font-Poppins font-medium">
-          on ExplorerX
+          on CrossX
         </h2>
       </div>
       <Image

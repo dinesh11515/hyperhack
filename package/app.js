@@ -49,29 +49,16 @@ exec("npx hardhat compile", async function (error, stdoutput, stderror) {
   contractToDeploy = contractToDeploy[contractToDeploy.length - 1].trim();
 
   //get the path where abi and bytecode is present
-  const jsonPath = path.join(process.cwd(), "/artifacts", "/contracts");
+  const jsonPath = path.join(
+    process.cwd(),
+    "/artifacts",
+    "/contracts",
+    contractToDeploy,
+    contractToDeploy.split(".")[0].trim() + ".json"
+  );
 
-  //get the files in that folder
-  const folders = getFiles(jsonPath, []);
-
-  const getjsonContractPath = folders.map((folder) => {
-    let fileName = folder.split("/");
-
-    fileName = fileName[fileName.length - 1].trim();
-
-    fileName =
-      !fileName.includes(".dbg") &&
-      fileName.includes(".json") &&
-      fileName.split(".")[0].trim();
-
-    if (fileName) {
-      return fileName === contractToDeploy.split(".")[0].trim() && folder;
-    }
-  });
-
-  //now get the files in that folder basically read the json file here
   const jsonFile = fs.readFileSync(
-    getjsonContractPath[getjsonContractPath.length - 1],
+    jsonPath,
     {
       encoding: "utf-8",
     },
@@ -80,20 +67,13 @@ exec("npx hardhat compile", async function (error, stdoutput, stderror) {
     }
   );
 
-  //this is the json file output
-  // console.log("json file is", JSON.parse(jsonFile).abi);
-
-  //read the contract here
   const contract = fs.readFileSync(
-    contractPaths[contractPaths.length - 1],
+    contractToDeployPath,
     { encoding: "utf-8" },
     function (err, data) {
       if (err) {
         console.log("error is", error);
       }
-
-      //contract written here
-      // console.log("data is", data);
     }
   );
 

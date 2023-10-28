@@ -53,6 +53,16 @@ const Address = () => {
 
   const { chain } = router.query;
 
+  const extractContractName = (contractString) => {
+    const regex = /contract (\w+) {/;
+    const match = contractString.match(regex);
+    if (match && match[1]) {
+      return match[1];
+    } else {
+      return null; // or throw an error, depending on your preference
+    }
+  };
+
   const getData = async () => {
     try {
       //get the data of the current address first
@@ -63,11 +73,15 @@ const Address = () => {
       const data = [
         {
           title: 'Name',
-          value: contractRecord?.data?.name,
+          value: contractRecord?.data?.name
+            ? contractRecord?.data?.name
+            : extractContractName(contractRecord?.data?.contractCode),
         },
         {
           title: 'Description',
-          value: contractRecord?.data?.description,
+          value: contractRecord?.data?.description
+            ? contractRecord?.data?.description
+            : 'No description',
         },
         {
           title: 'Owner',

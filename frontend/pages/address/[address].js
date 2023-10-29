@@ -93,7 +93,7 @@ const Address = () => {
         },
         {
           title: 'Balance',
-          value: '$102.34',
+          value: '$0',
         },
       ];
       const alternate = [];
@@ -140,7 +140,7 @@ const Address = () => {
             },
             {
               title: 'Balance',
-              value: '$102.34',
+              value: '$0',
             },
           ];
 
